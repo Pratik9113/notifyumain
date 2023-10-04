@@ -48,6 +48,7 @@ public class student_signup extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,25 +100,30 @@ public class student_signup extends javax.swing.JFrame {
                 loginbuttonActionPerformed(evt);
             }
         });
-        jPanel3.add(loginbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 280, 30));
+        jPanel3.add(loginbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 280, 30));
 
         jButton1.setBackground(new java.awt.Color(246, 208, 129));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setText("Register");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 280, 30));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 150, 30));
 
         jLabel3.setText("Don't have an Account?");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 130, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 130, -1));
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication7/WhatsApp Image 2023-10-02 at 20.21.09.jpeg"))); // NOI18N
         jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 10, true));
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 260, 70));
+
+        jButton2.setBackground(new java.awt.Color(246, 208, 129));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setText("Admin Login");
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 150, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 380, 510));
 
@@ -204,6 +210,7 @@ public class student_signup extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
