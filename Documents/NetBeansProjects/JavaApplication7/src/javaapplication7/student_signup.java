@@ -117,7 +117,7 @@ public class student_signup extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication7/WhatsApp Image 2023-10-02 at 20.21.09.jpeg"))); // NOI18N
-        jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 10, true));
+        jLabel6.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 260, 70));
 
         jButton2.setBackground(new java.awt.Color(246, 208, 129));
