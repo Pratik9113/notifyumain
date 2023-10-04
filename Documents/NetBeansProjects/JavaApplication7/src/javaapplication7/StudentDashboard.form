@@ -97,6 +97,7 @@
             </Container>
             <Container class="javax.swing.JPanel" name="enrollnotice">
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="enrollnoticeMouseClicked"/>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="enrollnoticeMousePressed"/>
               </Events>
               <Constraints>

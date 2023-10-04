@@ -74,6 +74,9 @@ public class StudentDashboard extends javax.swing.JFrame {
         jPanel5.add(viewnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 220, 40));
 
         enrollnotice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enrollnoticeMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 enrollnoticeMousePressed(evt);
             }
@@ -140,6 +143,13 @@ public class StudentDashboard extends javax.swing.JFrame {
            viewnotice.setBackground(DefaultColor);
           enrollnotice.setBackground(ClickedColor);
     }//GEN-LAST:event_enrollnoticeMousePressed
+
+    private void enrollnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollnoticeMouseClicked
+        // TODO add your handling code here:
+        Studentworkshop ab = new Studentworkshop();
+        JOptionPanel1.add(ab);
+        ab.setVisible(true);
+    }//GEN-LAST:event_enrollnoticeMouseClicked
   
 
 

@@ -65,6 +65,7 @@ public class Studentnotice1 extends javax.swing.JInternalFrame {
         BasicInternalFrameUI uis = (BasicInternalFrameUI)this.getUI();
         uis.setNorthPane(null);
         
+        
         populateTableFromDatabase();
     }
 
@@ -117,7 +118,6 @@ public class Studentnotice1 extends javax.swing.JInternalFrame {
             }
         });
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setRowHeight(30);
         jTable1.setRowHeight(30);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
