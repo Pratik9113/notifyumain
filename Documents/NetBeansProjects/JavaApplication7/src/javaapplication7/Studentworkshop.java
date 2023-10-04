@@ -4,7 +4,11 @@
  */
 package javaapplication7;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,12 +19,44 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
     /**
      * Creates new form Studentworkshop
      */
+    private void populateTableFromDatabase() {
+   var dbconn = DBConnection.connectDB();
+ // Use your connectDB method
+    if (dbconn != null) {
+        try {
+           
+            String sqlQuery = "SELECT workshop_id, workshop_text FROM workshop";
+            PreparedStatement st = dbconn.prepareStatement(sqlQuery);
+            ResultSet resultSet = st.executeQuery(sqlQuery);
+            
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+
+            while (resultSet.next()) {
+                 int workshpId = resultSet.getInt("workshop_id");
+                String workshopText = resultSet.getString("workshop_text");
+                model.addRow(new Object[]{workshpId,workshopText});
+            }
+
+            resultSet.close();
+            st.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                dbconn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
     public Studentworkshop() {
         initComponents();
          this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI uis = (BasicInternalFrameUI)this.getUI();
         uis.setNorthPane(null);
-        
+        populateTableFromDatabase();
     }
 
     /**
@@ -43,15 +79,23 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "sworkshop_id", "sworkshop_text", "viewworkshop"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 390));

@@ -106,7 +106,7 @@ public class Studentnotice1 extends javax.swing.JInternalFrame {
                 {null, null}
             },
             new String [] {
-                "notice_id", "notice_text"
+                "Sr.No", "notice_text"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -117,16 +117,19 @@ public class Studentnotice1 extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTable1.setAutoResizeMode(0);
         jTable1.setRowHeight(30);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(50);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(50);
+            jTable1.getColumnModel().getColumn(0).setMinWidth(45);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(45);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(45);
+            jTable1.getColumnModel().getColumn(1).setMinWidth(3000);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(3000);
+            jTable1.getColumnModel().getColumn(1).setMaxWidth(3000);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, 350));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, 350));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
