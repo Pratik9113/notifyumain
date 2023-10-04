@@ -4,6 +4,14 @@
  */
 package javaapplication7;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -31,21 +39,120 @@ public class Uploadnotice extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        entertext = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        entertext.setColumns(20);
+        entertext.setRows(5);
+        jScrollPane1.setViewportView(entertext);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 46, 660, 183));
+
+        jLabel1.setText("Enter the notice ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 135, -1));
+
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
+        jButton1.setText("submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 150, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 758, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 384, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String text = entertext.getText();
+        //String password = new String(userpassword.getPassword());
+//        String password = userpassword.getPassword().toString();
+     /*   if(text.isEmpty()){
+            JOptionPane.showMessageDialog(this,"email / password should not be empty","Error",JOptionPane.ERROR_MESSAGE);
+            
+        }
+      /*   char[] passwordChars = userpassword.getPassword(); // Get the password as a char[]
+    String password = new String(passwordChars); // Convert char[] to String
+
+    if (email.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Email / password should not be empty", "Error", JOptionPane.ERROR_MESSAGE);
+    }*/
+            userLogino(text);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea entertext;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void userLogino(String text) {
+         var dbconn = DBConnection.connectDB();
+    
+    if (dbconn != null) {
+        try {
+            // Define the SQL query with placeholders for email and password
+            String query = "insert into mysql.admindashboard(notice_text) values (?)";
+          //  String query1 = "SELECT CURRENT_DATE FROM DUAL";
+            // Create a prepared statement
+            PreparedStatement st = dbconn.prepareStatement(query);
+             st.setString(1, text);
+            // Date dt = new Date();
+           //  st.setDate(2, (java.sql.Date) dt);
+              
+            // Set the values for the placeholders
+           
+           // st.setString(2, password);
+          //    java.util.Date currentDate = new java.util.Date();
+
+            // Convert java.util.Date to java.sql.Date
+         //   java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
+
+            // Set the date parameter in the prepared statement
+         //   st.setDate(2, sqlDate);
+
+            // Execute the query
+ int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected > 0) {
+                // Insertion successful
+                dispose();
+                // You can perform other actions here if needed
+            } else {
+                JOptionPane.showMessageDialog(this, "Insertion failed", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(student_signup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } else {
+        System.out.println("The connection is not available.");
+    }
 }
+        }
